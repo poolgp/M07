@@ -1,0 +1,73 @@
+body {
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.containerTitulo {
+    height: 80px;
+    margin: 15px;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    margin-left: 40px;
+    color: white;
+}
+
+nav {
+    height: 80px;
+    margin: 15px;
+}
+
+.navbar {
+    background-color: #535353;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+nav a:hover {
+    color: #1ED760;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.containerCartas {
+    border: solid 2px black;
+    height: auto;
+    margin: 15px;
+}
+
+.card {
+    margin: 50px 125px 50px 125px;
+border-color: black;}
+
+.card-header {
+    background-color: #1DB954;
+    color: #FFFF;
+}
+
+.card-body {
+    background-color: #535353;
+    color: #FFFF;
+}
+
+.form-check-input:disabled {
+    background-color: #fff;
+}
+
+.form-check-input:checked {
+    background-color: #4CAF50;
+}

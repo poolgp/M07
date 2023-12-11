@@ -1,0 +1,51 @@
+body {
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.containerTitulo {
+    height: 80px;
+    margin: 15px;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    margin-left: 40px;
+    color: white;
+}
+
+nav {
+    height: 80px;
+    margin: 15px;
+}
+
+.navbar {
+    background-color: #535353;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+nav a:hover {
+    color: #1ED760;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.containerCartas {
+    border: solid 2px black;
+    height: auto;
+    margin: 15px;
+}
