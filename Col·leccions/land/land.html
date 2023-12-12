@@ -15,6 +15,7 @@
         </script>
 
     <link rel="stylesheet" href="land.css">
+    <script src="land.js"></script>
 </head>
 
 <body>
@@ -23,16 +24,59 @@
     </div>
 
     <div class="containerC">
-        <div class="container">
-            <a href="../Home/index.html">
+        <div class="containerCancion" id="containerCancion" onclick="toggleVisibility('containerD2')">
+            <a href="#">
                 <h3>CANCIONES</h3>
             </a>
         </div>
 
-        <div class="container">
+        <div class="containerCantante" id="containerCantante" onclick="toggleVisibility('containerD2')">
             <a href="#">
                 <h3>CANTANTES</h3>
             </a>
+        </div>
+    </div>
+
+    <div class="containerOpcs">
+        <div class="containerCanc" id="containerCanc" style="display: none;">
+            <div class="box1">
+                <a href="#"></a>
+            </div>
+            <div class="box1">
+                <a href="#"></a>
+            </div>
+            <div class="box">
+                <a href="#">MOSTRAR</a>
+            </div>
+            <div class="box">
+                <a href="#">AÑADIR</a>
+            </div>
+            <div class="box">
+                <a href="#">EDITAR</a>
+            </div>
+            <div class="box">
+                <a href="#">ELIMINAR</a>
+            </div>
+        </div>
+        <div class="containerCant" id="containerCant" style="display: none;">
+            <div class="box1">
+                <a href="#"></a>
+            </div>
+            <div class="box1">
+                <a href="#"></a>
+            </div>
+            <div class="box">
+                <a href="#">MOSTRAR</a>
+            </div>
+            <div class="box">
+                <a href="#">AÑADIR</a>
+            </div>
+            <div class="box">
+                <a href="#">EDITAR</a>
+            </div>
+            <div class="box">
+                <a href="#">ELIMINAR</a>
+            </div>
         </div>
     </div>
 </body>
