@@ -7,43 +7,43 @@ body {
     margin: 15px;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 h1 {
-    margin-left: 40px;
     color: #1ED760;
+    font-weight: 500;
 }
 
-nav {
-    height: 80px;
-    margin: 15px;
+.containerC {
+    height: 700px;
+    margin: 50px;
+    display: flex;
+    justify-content: center;
 }
 
-.navbar {
-    background-color: #535353;
+.containerCancion,
+.containerCantante {
+    z-index: 2;
+    height: 700px;
+    width: 650px;
+    margin: 15px 60px 15px 60px;
+    background-color: #1ED760;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
-nav a {
+.containerCancion a,
+.containerCantante a {
     text-decoration: none;
-    color: white;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
 }
 
-nav a:hover {
-    color: #1ED760;
-}
-
-.navbar-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-}
-
-.containerCartas {
-    border: solid 2px #191414;
-    height: auto;
-    margin: 15px;
+.containerCancion h3,
+.containerCantante h3 {
+    color: black;
+    font-size: 25px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
