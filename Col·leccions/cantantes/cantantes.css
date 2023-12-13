@@ -7,10 +7,24 @@ body {
     margin: 15px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 h1 {
     margin-left: 40px;
+    color: #1ED760;
+}
+
+.btn {
+    background-color: #1ED760;
+}
+
+.btn:hover {
+    background-color: #1db954;
+}
+
+.button-container {
+    margin-right: 150px;
     color: #1ED760;
 }
 
@@ -41,6 +55,11 @@ nav a:hover {
     justify-content: space-around;
     width: 100%;
 }
+
+.dropdown-menu{
+    background-color:#1ED760;
+}
+
 
 .containerCartas {
     border: solid 2px #191414;
