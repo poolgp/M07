@@ -22,7 +22,9 @@ h1 {
     justify-content: center;
 }
 
-.containerCancion, .containerCantante {
+.containerCancion,
+.containerCantante {
+    z-index: 2;
     height: 700px;
     width: 650px;
     margin: 15px 60px 15px 60px;
@@ -33,57 +35,15 @@ h1 {
     align-items: center;
     cursor: pointer;
 }
-.containerCancion a, .containerCantante a {
+
+.containerCancion a,
+.containerCantante a {
     text-decoration: none;
 }
 
-.containerCancion h3, .containerCantante h3 {
+.containerCancion h3,
+.containerCantante h3 {
     color: black;
     font-size: 25px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.containerOpcs {
-    height: 700px;
-    margin: 50px;
-    display: flex;
-    justify-content: center;
-}
-
-.containerCanc, .containerCant {
-    height: 700px;
-    width: 650px;
-    margin: 15px 60px 15px 60px;
-    background-color: #1ED760;
-    border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.box {
-    height: 50px;
-    width: auto;
-    border: solid 2px black;
-    text-align: center;
-    margin: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.box a {
-    text-decoration: none;
-    color: black;
-    font-size: 20px;
-}
-
-.box1 {
-    height: 50px;
-    width: auto;
-    text-align: center;
-    margin: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
