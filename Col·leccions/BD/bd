@@ -1,5 +1,21 @@
 create table if not exists canciones(
-	id_Cancion int not null auto_increment,
+	id_Cancion int not null unique auto_increment,
     album varchar (50),
-    data_Cancion date
+    data_Cancion date,
+    primary key (id_Cancion)
+);
+
+create table if not exists cantantes(
+	id_Cantante int not null unique auto_increment,
+    nombre varchar (50) unique,
+    edad int not null,
+    descripcion varchar (100),
+    imagen blob,
+    primary key (id_Cantante)
+);
+
+create table if not exists paises(
+	id_Pais int not null unique,
+    nombrePais varchar (50) not null unique,
+    primary key (id_Pais)
 );
