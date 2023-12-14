@@ -6,6 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Añade un evento de cambio al checkbox
     checkbox.addEventListener("change", function () {
         // Si el checkbox está marcado, muestra el campo del segundo artista; de lo contrario, ocúltalo
-        artista2Container.style.display = checkbox.checked ? "block" : "none";
+        artista2Container.style.visibility = checkbox.checked ? "visible" : "hidden";
     });
 });
