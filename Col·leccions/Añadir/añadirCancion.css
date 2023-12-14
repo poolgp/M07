@@ -1,7 +1,5 @@
 body {
-    background-color: black;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: #191414;
 }
 
 .containerTitulo {
@@ -9,11 +7,12 @@ body {
     margin: 15px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 h1 {
     margin-left: 40px;
-    color: white;
+    color: #1ED760;
 }
 
 nav {
@@ -27,14 +26,17 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: white;
+    color: #FFFF;
     display: flex;
     align-items: center;
-    flex-direction: column;
 }
 
 nav a:hover {
     color: #1ED760;
+}
+
+nav i {
+    margin: 15px;
 }
 
 .navbar-nav {
@@ -52,7 +54,8 @@ nav a:hover {
 
 .card {
     margin: 50px 125px 50px 125px;
-border-color: black;}
+    border-color: black;
+}
 
 .card-header {
     background-color: #1DB954;

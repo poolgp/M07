@@ -39,10 +39,13 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: white;
+    color: #FFFF;
     display: flex;
     align-items: center;
-    flex-direction: column;
+}
+
+nav i{
+margin:15px;
 }
 
 nav a:hover {
@@ -56,8 +59,16 @@ nav a:hover {
     width: 100%;
 }
 
-.dropdown-menu{
-    background-color:#1ED760;
+.dropdown a {
+    color: #FFFF;
+}
+
+.dropdown a:hover {
+    color: #1ED760;
+}
+
+.dropdown-menu {
+    background-color: #1ED760;
 }
 
 

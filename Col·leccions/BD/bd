@@ -1,0 +1,5 @@
+create table if not exists canciones(
+	id_Cancion int not null auto_increment,
+    album varchar (50),
+    data_Cancion date
+);
