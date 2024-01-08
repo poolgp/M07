@@ -8,7 +8,7 @@
             "name": "Launch Chrome",
             "request": "launch",
             "type": "chrome",
-            "url": "http://localhost:8080/Col·leccions/Home/index.html",
+            "url": "http://localhost:8080/M07_08/M07_08_01/Clases/index.php",
             "webRoot": "${workspaceFolder}"
         },
         {
