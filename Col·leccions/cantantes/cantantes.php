@@ -39,7 +39,7 @@
                 <div class="navbar-nav">
                     <ul class="navbar-nav">
                         <li>
-                            <a href="../Añadir/añadir.php">
+                            <a href="../añadirCantante/añadirCantante.php">
                                 <span>Añadir</span>
                                 <i class="fa-solid fa-plus"></i>
                             </a>

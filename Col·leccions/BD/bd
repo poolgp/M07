@@ -9,7 +9,7 @@ create table if not exists cantantes(
 	id_Cantante int not null unique auto_increment,
     nombre varchar (50) unique,
     edad int not null,
-    descripcion varchar (100),
+    nacionalidad varchar (100),
     imagen blob,
     primary key (id_Cantante)
 );

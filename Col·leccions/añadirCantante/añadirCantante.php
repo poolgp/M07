@@ -14,13 +14,13 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
 
-    <link rel="stylesheet" href="añadirCancion.css" />
+    <link rel="stylesheet" href="añadirCantante.css" />
 </head>
 
 <body>
     <div class="containerTitulo">
         <div class="title-container">
-            <h1>Cantante.com / Canciones</h1>
+            <h1>Cantante.com / Cantantes</h1>
         </div>
     </div>
 
@@ -34,7 +34,7 @@
                 <div class="navbar-nav">
                     <ul class="navbar-nav">
                         <li>
-                            <a href="../canciones/canciones.php">
+                            <a href="../cantantes/cantantes.php">
                                 <span>Home</span>
                                 <i class="fa-solid fa-house"></i>
                             </a>
@@ -46,46 +46,40 @@
     </nav>
 
     <div class="card">
-        <h5 class="card-header">Ficha de la canción</h5>
+        <h5 class="card-header">Ficha del cantante</h5>
         <div class="card-body">
             <div class="mb-3 row">
-                <label for="nameCancion" class="col-sm-2 col-form-label">Nombre de la Canción: </label>
+                <label for="nameCancion" class="col-sm-2 col-form-label">Nombre del Cantante: </label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputnameCancion" placeholder="Sangre y Fe" />
+                    <input type="text" class="form-control" id="inputnameCantante" placeholder="Cruz Cafuné" />
+                </div>
+            </div>
+
+            <div class=" mb-3 row">
+                <label for="nameAlbum" class="col-sm-2 col-form-label">Edad del Cantante: </label>
+                <div class="col-sm-10">
+                    <input type="date" class="form-control" id="dateEdad" placeholder="#" />
                 </div>
             </div>
 
             <div class="mb-3 row">
-                <label for="nameAlbum" class="col-sm-2 col-form-label">Nombre del Álbum: </label>
+                <label for="NacionalidadArtista" class="col-sm-2 col-form-label">Nacionalidad: </label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputnameAlbum" placeholder="Me Muevo Con Dios" />
+                    <select name="NArtista" id="NacionalidadArtista">
+                        <option value="None" select>---</option>
+                        <option value="España">España</option>
+                        <option value="Canarias">Islas Canarias</option>
                 </div>
             </div>
+            <div>
+                <label for="UploadImg" class="col-sm-2 col-form-label">Imagen: </label>
 
-            <div class="mb-3 row">
-                <label for="nameArtista" class="col-sm-2 col-form-label">Nombre del Artista: </label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputnameArtista" placeholder="Cruz Cafuné" />
-                </div>
             </div>
-
-            <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
-                <label class="form-check-label" for="flexSwitchCheckDefault">Colaboración</label>
-            </div>
-
-            <div id="artista2Container" class="mb-3 row" style="visibility: hidden">
-                <label for="nameArtista2" class="col-sm-2 col-form-label">Nombre del Artista: </label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputnameArtista2" placeholder="Quevedo" />
-                </div>
-            </div>
-
             <button type="button" class="btn btn-success">Success</button>
         </div>
     </div>
 
-    <script src="añadirCantante.js"></script>
+    <script src="añadirCancion.js"></script>
 </body>
 
 </html>
