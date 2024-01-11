@@ -1,17 +1,18 @@
-create table if not exists canciones(
-	id_Cancion int not null unique auto_increment,
-    album varchar (50),
-    data_Cancion date,
-    primary key (id_Cancion)
-);
-
 create table if not exists cantantes(
 	id_Cantante int not null unique auto_increment,
-    nombre varchar (50) unique,
-    edad int not null,
-    nacionalidad varchar (100),
-    imagen blob,
+    nameCant varchar (50) unique,
+    edadCant int not null,
+    paisCant varchar (100),
+    imgCant mediumblob,
     primary key (id_Cantante)
+);
+
+create table if not exists canciones(
+	id_Cancion int not null unique auto_increment,
+    nameCanc varchar (50),
+    albumCanc varchar(50) unique,
+    data_Cancion date,
+    primary key (id_Cancion)
 );
 
 create table if not exists paises(
@@ -19,3 +20,10 @@ create table if not exists paises(
     nombrePais varchar (50) not null unique,
     primary key (id_Pais)
 );
+
+insert into paises values (1, 'Estados Unidos');
+insert into paises values (2, 'Reino Unido');
+insert into paises values (3, 'Canadá');
+
+-- SELECT * FROM colleccions.paises order by id_Pais;
+

@@ -1,3 +1,8 @@
+<?php
+require_once('../BD/php_librarys/bd.php');
+$paisCant = selectPaises();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,35 +56,49 @@
             <div class="mb-3 row">
                 <label for="nameCancion" class="col-sm-2 col-form-label">Nombre del Cantante: </label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputnameCantante" placeholder="Cruz Cafuné" />
+                    <input type="text" class="form-control" id="inputnameCantante" placeholder="Cruz Cafuné" required />
                 </div>
             </div>
 
             <div class=" mb-3 row">
                 <label for="nameAlbum" class="col-sm-2 col-form-label">Edad del Cantante: </label>
                 <div class="col-sm-10">
-                    <input type="date" class="form-control" id="dateEdad" placeholder="#" />
+                    <input type="date" class="form-control" id="dateEdad" placeholder="#" required />
                 </div>
             </div>
 
             <div class="mb-3 row">
                 <label for="NacionalidadArtista" class="col-sm-2 col-form-label">Nacionalidad: </label>
                 <div class="col-sm-10">
-                    <select name="NArtista" id="NacionalidadArtista">
-                        <option value="None" select>---</option>
-                        <option value="España">España</option>
-                        <option value="Canarias">Islas Canarias</option>
+                    <select name="NArtista" id="NacionalidadArtista" required>
+                        <?php
+                        foreach ($paisCant as $pais) { ?>
+                        <option value="pais"> <?php echo $pais['nombrePais']; ?> </option>
+                        <?php } ?>
+                    </select>
                 </div>
             </div>
-            <div>
-                <label for="UploadImg" class="col-sm-2 col-form-label">Imagen: </label>
 
+            <!-- <div class="mb-3 row">
+                <label for="NacionalidadArtista" class="col-sm-2 col-form-label">Nacionalidad: </label>
+                <div class="col-sm-10">
+                    <select name="NArtista" id="NacionalidadArtista" required>
+                        <option value="None" select>---</option>
+                        <option value="España">España</option>
+                    </select>
+                </div>
+            </div> -->
+
+            <div class="mb-3 row">
+                <label for="imgCantante" class="col-sm-2 col-form-label">Imagen:</label>
+                <input type="file" class="form-control" id="fileImg" required />
             </div>
+
+
             <button type="button" class="btn btn-success">Success</button>
         </div>
-    </div>
 
-    <script src="añadirCancion.js"></script>
+        <script src="añadirCancion.js"></script>
 </body>
 
 </html>

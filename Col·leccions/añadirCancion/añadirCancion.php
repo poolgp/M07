@@ -65,7 +65,9 @@
             <div class="mb-3 row">
                 <label for="nameArtista" class="col-sm-2 col-form-label">Nombre del Artista: </label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputnameArtista" placeholder="Cruz Cafuné" />
+                    <select name="nameArtista" id="nombreArtista" required>
+                        <!-- select * from colleccions.cantantes -->
+                        <input type="text" class="form-control" id="inputnameArtista" placeholder="Cruz Cafuné" />
                 </div>
             </div>
 
@@ -85,7 +87,7 @@
         </div>
     </div>
 
-    <script src="añadirCantante.js"></script>
+    <script src="añadirCancion.js"></script>
 </body>
 
 </html>
