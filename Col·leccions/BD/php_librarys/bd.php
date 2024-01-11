@@ -1,38 +1,61 @@
- <?php
+<?php
 
-    function openBD()
-    {
-        $servername = "localhost";
-        $username = "root";
-        $password = "mysql";
+session_start();
 
-        $conexion = new PDO("mysql:host=$servername; dbname=colleccions", $username, $password);
+function openBD()
+{
+    $servername = "localhost";
+    $username = "root";
+    $password = "mysql";
 
-        $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $conexion->exec("set names utf8");
+    $conexion = new PDO("mysql:host=$servername; dbname=colleccions", $username, $password);
 
-        return $conexion;
-    }
+    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conexion->exec("set names utf8");
 
-    function closeBD()
-    {
-        return null;
-    }
+    return $conexion;
+}
 
-    function selectPaises()
-    {
+function closeBD()
+{
+    return null;
+}
+
+function selectPaises()
+{
+    $conexion = openBD();
+
+    $sentenciaText = "select * from colleccions.paises order by id_Pais;";
+
+    $sentencia = $conexion->prepare("$sentenciaText");
+    $sentencia->execute();
+
+    $resultado = $sentencia->fetchAll();
+
+    $conexion = closeBD();
+
+    return $resultado;
+}
+
+function insertCantante($id_Cantante, $nameCant, $edadCant, $paisCant, $imgCant)
+{
+    try {
         $conexion = openBD();
 
-        $sentenciaText = "select * from colleccions.paises order by id_Pais;";
-
-        $sentencia = $conexion->prepare("$sentenciaText");
+        $sentenciaText = "insert into colleccions.cantantes (id_Cantante, nameCant, edadCant, paisCant, imgCant) values (:id_Cantante, :nameCant, :edadCant, :paisCant, :imgCant)";
+        $sentencia = $conexion->prepare($sentenciaText);
+        $sentencia->bindParam(':id_Cantante', $id_Cantante);
+        $sentencia->bindParam(':nameCant', $nameCant);
+        $sentencia->bindParam(':edadCant', $edadCant);
+        $sentencia->bindParam(':paisCant', $paisCant);
+        $sentencia->bindParam(':imgCant', $imgCant);
         $sentencia->execute();
 
-        $resultado = $sentencia->fetchAll();
-
         $conexion = closeBD();
-
-        return $resultado;
+    } catch (PDOException $einsertCantante) {
+        $_SESSION['error'] = $einsertCantante->getCode() . ' - ' . $einsertCantante->getMessage();
     }
+}
 
-    ?>
+// catch (PDOException $einsertCantante) {
+//         $_SESSION['errorinsertCantante'] = $einsertCantante->getCode() . ' - ' . $einsertCantante->getMessage();
