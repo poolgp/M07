@@ -1,3 +1,5 @@
+create database if not exists colleccions;
+
 drop table colleccions.cantantes;
 create table if not exists cantantes(
 	id_Cantante int not null unique auto_increment,

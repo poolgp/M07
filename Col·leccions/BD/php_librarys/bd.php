@@ -42,13 +42,19 @@ function insertCantante($id_Cantante, $nameCant, $edadCant, $paisCant, $imgCant)
     try {
         $conexion = openBD();
 
+        $rutaImg = "../../img/imgCant/";
+        $imagen = "../../img/imgCant/" . $_FILES['imgCant']['name'];
+        $imgSubida = $rutaImg . $_FILES['imgCant']['name'];
+
+        move_uploaded_file($_FILES['imgCant']['tmp_name'], $imgSubida);
+
         $sentenciaText = "insert into colleccions.cantantes (id_Cantante, nameCant, edadCant, paisCant, imgCant) values (:id_Cantante, :nameCant, :edadCant, :paisCant, :imgCant)";
         $sentencia = $conexion->prepare($sentenciaText);
         $sentencia->bindParam(':id_Cantante', $id_Cantante);
         $sentencia->bindParam(':nameCant', $nameCant);
         $sentencia->bindParam(':edadCant', $edadCant);
         $sentencia->bindParam(':paisCant', $paisCant);
-        $sentencia->bindParam(':imgCant', $imgCant);
+        $sentencia->bindParam(':imgCant', $imagen);
         $sentencia->execute();
 
         $conexion = closeBD();
