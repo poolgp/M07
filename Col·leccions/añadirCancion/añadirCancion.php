@@ -1,3 +1,8 @@
+<?php
+require_once('../BD/php_librarys/bd.php');
+$selectCant = selectCantantes();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +17,7 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+        </script>
 
     <link rel="stylesheet" href="añadirCancion.css" />
 </head>
@@ -48,42 +53,73 @@
     <div class="card">
         <h5 class="card-header">Ficha de la canción</h5>
         <div class="card-body">
-            <div class="mb-3 row">
-                <label for="nameCancion" class="col-sm-2 col-form-label">Nombre de la Canción: </label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputnameCancion" placeholder="Sangre y Fe" />
+            <form action="../BD/php_controllers/añadirCantController.php" method="POST">
+                <div class="mb-3 row">
+                    <label for="nameCancion" class="col-sm-2 col-form-label">Nombre de la Canción: </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputnameCancion" placeholder="Sangre y Fe" />
+                    </div>
                 </div>
-            </div>
 
-            <div class="mb-3 row">
-                <label for="nameAlbum" class="col-sm-2 col-form-label">Nombre del Álbum: </label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputnameAlbum" placeholder="Me Muevo Con Dios" />
+                <div class="mb-3 row">
+                    <label for="nameAlbum" class="col-sm-2 col-form-label">Nombre del Álbum: </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputnameAlbum" placeholder="Me Muevo Con Dios" />
+                    </div>
                 </div>
-            </div>
 
-            <div class="mb-3 row">
-                <label for="nameArtista" class="col-sm-2 col-form-label">Nombre del Artista: </label>
-                <div class="col-sm-10">
-                    <select name="nameArtista" id="nombreArtista" required>
-                        <!-- select * from colleccions.cantantes -->
-                        <input type="text" class="form-control" id="inputnameArtista" placeholder="Cruz Cafuné" />
+                <div class="mb-3 row">
+                    <label for="nameArtista" class="col-sm-2 col-form-label">Nombre del Artista: </label>
+                    <div class="col-sm-10">
+                        <select name="nameArtista" id="nombreArtista" required>
+                            <?php foreach ($selectCant as $cant) { ?>
+                                <option value="cantante">
+                                    <?php echo $cant['nameCant']; ?>
+                                </option>
+                            <?php } ?>
+                        </select>
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
-                <label class="form-check-label" for="flexSwitchCheckDefault">Colaboración</label>
-            </div>
-
-            <div id="artista2Container" class="mb-3 row" style="visibility: hidden">
-                <label for="nameArtista2" class="col-sm-2 col-form-label">Nombre del Artista: </label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputnameArtista2" placeholder="Quevedo" />
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Colaboración</label>
                 </div>
-            </div>
 
-            <button type="button" class="btn btn-success">Success</button>
+                <div id="artista2Container" class="mb-3 row" style="visibility: hidden">
+                    <label for="nameArtista2" class="col-sm-2 col-form-label">Nombre del Artista: </label>
+                    <div class="col-sm-10">
+                        <select name="nameArtista" id="nombreArtista" required>
+                            <?php foreach ($selectCant as $cant) { ?>
+                                <option value="cantante">
+                                    <?php echo $cant['nameCant']; ?>
+                                </option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+
+                <div class=" mb-3 row">
+                    <label for="anioAlbum" class="col-sm-2 col-form-label">Año del Álbum: </label>
+                    <div class="col-sm-10">
+                        <select name="anioAlbum">
+                            <script>
+                                let currentYear = new Date().getFullYear();
+                                for (let year = 1900; year <= currentYear; year++) {
+                                    document.write('<Option value="' + year + '">' + year + '</option>');
+                                }
+                            </script>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="imgAlbum" class="col-sm-2 col-form-label">Imagen Álbum:</label>
+                    <input type="file" class="form-control" id="imgCanc" name="imgCantc" required />
+                </div>
+
+                <button type="submit" class="btn btn-success" name="insertCanc">Success</button>
+            </form>
         </div>
     </div>
 
