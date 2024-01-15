@@ -71,9 +71,9 @@ nav a:hover {
     background-color: #1ED760;
 }
 
-
-.containerCartas {
-    border: solid 2px #191414;
-    height: auto;
-    margin: 15px;
+.containerCartas{
+    border: solid 4px #ffff;
+    height: 200px;
+    width: 200px;
+    text-decoration-color: white;
 }
