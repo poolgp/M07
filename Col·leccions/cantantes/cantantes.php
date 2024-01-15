@@ -93,22 +93,34 @@ $cardCant = selectCantantes();
         </div>
     </nav>
     <?php foreach ($cardCant as $card) { ?>
-    <div class="row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
-            <div class="card">
-                <div class="card" style="width: 18rem;">
-                    <img src=" <?php echo $card['imgCant'] ?>" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"><?php echo $card['nameCant'] ?></h5>
+        <div class="row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <div class="card">
+                    <div class="card" style="width: 18rem;">
+                        <img src="<?php echo $card['imgCant'] ?>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <?php echo $card['nameCant'] ?>
+                            </h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <?php echo $card['edadCant'] ?>
+                            </li>
+                            <?php
+                            $paises = jointPais();
+                            foreach ($paises as $pais) {
+                                if ($pais['id_Cantante'] == $card['id_Cantante']) {
+                                    echo '<li class="list-group-item">' . $pais['nombrePaisCantante'] . '</li>';
+                                    break;
+                                }
+                            }
+                            ?>
+                        </ul>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><?php echo $card['edadCant'] ?></li>
-                        <li class="list-group-item"><?php echo $card['paisCant'] ?></li>
-                    </ul>
                 </div>
             </div>
         </div>
-    </div>
     <?php } ?>
 
     <!-- <div class="containerCartas">
@@ -119,3 +131,38 @@ $cardCant = selectCantantes();
 </body>
 
 </html>
+
+
+
+<?php foreach ($cardCant as $index => $card) { ?>
+    <?php if ($index % 4 == 0) { ?>
+        <!-- Inicia una nueva fila después de cada 4 cantantes -->
+        <div class="row mb-3">
+    <?php } ?>
+
+    <div class="col-sm-3">
+        <div class="card" style="width: 18rem;">
+            <img src="<?php echo $card['imgCant'] ?>" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><?php echo $card['nameCant'] ?></h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><?php echo $card['edadCant'] ?></li>
+                <?php
+                $paises = jointPais();
+                foreach ($paises as $pais) {
+                    if ($pais['id_Cantante'] == $card['id_Cantante']) {
+                        echo '<li class="list-group-item">' . $pais['nombrePaisCantante'] . '</li>';
+                        break;
+                    }
+                }
+                ?>
+            </ul>
+        </div>
+    </div>
+
+    <?php if (($index + 1) % 4 == 0 || ($index + 1) == count($cardCant)) { ?>
+        <!-- Cierra la fila después de cada 4 cantantes o al final del bucle -->
+        </div>
+    <?php } ?>
+<?php } ?>
