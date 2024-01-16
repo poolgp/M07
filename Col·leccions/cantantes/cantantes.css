@@ -15,18 +15,27 @@ h1 {
     color: #1ED760;
 }
 
-.btn {
+.btn-top {
+    margin-right: 150px;
     background-color: #1ED760;
 }
 
-.btn:hover {
+.btn-top:hover {
     background-color: #1db954;
 }
 
-.button-container {
+.btn-green {
+    background-color: #1ED760;
+}
+
+.btn-green:hover {
+    background-color: #1db954;
+}
+
+/* .button-container {
     margin-right: 150px;
     color: #1ED760;
-}
+} */
 
 nav {
     height: 80px;
@@ -44,8 +53,8 @@ nav a {
     align-items: center;
 }
 
-nav i{
-margin:15px;
+nav i {
+    margin: 15px;
 }
 
 nav a:hover {
@@ -69,11 +78,4 @@ nav a:hover {
 
 .dropdown-menu {
     background-color: #1ED760;
-}
-
-.containerCartas{
-    border: solid 4px #ffff;
-    height: 200px;
-    width: 200px;
-    text-decoration-color: white;
 }

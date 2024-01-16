@@ -42,3 +42,5 @@ insert into paises values (10, 'Australia');
 
 -- SELECT * FROM colleccions.paises order by id_Pais;
 select * from colleccions.cantantes;
+
+delete from colleccions.cantantes where id_Cantante;

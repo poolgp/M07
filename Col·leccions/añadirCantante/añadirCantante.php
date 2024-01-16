@@ -54,7 +54,7 @@ $paisCant = selectPaises();
     <div class="card">
         <h5 class="card-header">Ficha del cantante</h5>
         <div class="card-body">
-            <form action="../BD/php_controllers/añadirCantController.php" method="POST">
+            <form action="../BD/php_controllers/añadirCantController.php" method="POST" enctype="multipart/form-data">
                 <div class="mb-3 row">
                     <label for="nameCancion" class="col-sm-2 col-form-label">Nombre del Cantante: </label>
                     <div class="col-sm-10">
@@ -73,9 +73,9 @@ $paisCant = selectPaises();
                 <div class="mb-3 row">
                     <label for="NacionalidadArtista" class="col-sm-2 col-form-label">Nacionalidad: </label>
                     <div class="col-sm-10">
-                        <select name="NArtista" id="paisCant" name="paisCant" required>
+                        <select name="paisCant" id="paisCant" required>
                             <?php foreach ($paisCant as $pais) { ?>
-                                <option value="pais">
+                                <option value="<?php echo $pais['id_Pais']; ?>">
                                     <?php echo $pais['nombrePais']; ?>
                                 </option>
                             <?php } ?>

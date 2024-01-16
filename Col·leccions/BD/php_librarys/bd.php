@@ -42,11 +42,15 @@ function insertCantante($id_Cantante, $nameCant, $edadCant, $paisCant, $imgCant)
     try {
         $conexion = openBD();
 
-        $rutaImg = "../../img/imgCant/";
-        $imagen = "../../img/imgCant/" . $_FILES['imgCant']['name'];
-        $imgSubida = $rutaImg . $_FILES['imgCant']['name'];
+        $rutaImg = "/Col·leccions/img/imgCant/";
+        // $imagen = "../../img/imgCant/" . $_FILES['imgCant']['name'];
 
-        move_uploaded_file($_FILES['imgCant']['tmp_name'], $imgSubida);
+        $fechaActual = date("Ymd_His");
+
+        $nombreArchivo = $fechaActual . "-" . $_FILES['imgCant']['name'];
+        $imgSubida = $rutaImg . $nombreArchivo;
+
+        move_uploaded_file($_FILES['imgCant']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . $imgSubida);
 
         $sentenciaText = "insert into colleccions.cantantes (id_Cantante, nameCant, edadCant, paisCant, imgCant) values (:id_Cantante, :nameCant, :edadCant, :paisCant, :imgCant)";
         $sentencia = $conexion->prepare($sentenciaText);
@@ -54,7 +58,7 @@ function insertCantante($id_Cantante, $nameCant, $edadCant, $paisCant, $imgCant)
         $sentencia->bindParam(':nameCant', $nameCant);
         $sentencia->bindParam(':edadCant', $edadCant);
         $sentencia->bindParam(':paisCant', $paisCant);
-        $sentencia->bindParam(':imgCant', $imagen);
+        $sentencia->bindParam(':imgCant', $imgSubida);
         $sentencia->execute();
 
         $conexion = closeBD();
@@ -62,9 +66,6 @@ function insertCantante($id_Cantante, $nameCant, $edadCant, $paisCant, $imgCant)
         $_SESSION['error'] = $einsertCantante->getCode() . ' - ' . $einsertCantante->getMessage();
     }
 }
-
-// catch (PDOException $einsertCantante) {
-//         $_SESSION['errorinsertCantante'] = $einsertCantante->getCode() . ' - ' . $einsertCantante->getMessage();
 
 function selectCantantes()
 {
@@ -82,6 +83,28 @@ function selectCantantes()
     return $resultado;
 }
 
+function jointPais()
+{
+    try {
+        $conexion = openBD();
+
+        $sentenciaText = "SELECT cantantes.id_Cantante, cantantes.nameCant, cantantes.edadCant, paises.nombrePais as nombrePaisCantante, cantantes.imgCant
+                            FROM colleccions.cantantes
+                            INNER JOIN colleccions.paises ON paises.id_Pais = cantantes.paisCant;";
+
+        $sentencia = $conexion->prepare($sentenciaText);
+        $sentencia->execute();
+
+        $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+        $conexion = closeBD();
+
+        return $resultado;
+    } catch (\Throwable $th) {
+        // Manejar la excepción según tus necesidades
+        return array();
+    }
+}
 function insertCancion($id_Cancion, $nameCanc, $albumCanc, $paisCant, $imgCant)
 {
     try {
