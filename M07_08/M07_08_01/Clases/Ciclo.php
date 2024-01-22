@@ -8,11 +8,22 @@ class Ciclo
 
     public static $numCursos = 0;
 
-    public function __construct($id, $siglas, $nombre){
+    public function __construct($id, $siglas, $nombre)
+    {
         $this->id = $id;
         $this->siglas = $siglas;
         $this->nombre = $nombre;
         self::$numCursos++;
+    }
+
+    public function __toString()
+    {
+        $string =  $this->siglas . '<br>';
+        $string .=  $this->nombre . '<br>';
+
+        $string .= 'Número de cursos: ' . self::$numCursos;
+
+        return $string;
     }
 
     public function getId()
