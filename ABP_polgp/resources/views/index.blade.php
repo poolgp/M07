@@ -3,6 +3,8 @@
 @section('titulo', 'Indice')
 
 @section('contenido')
-    <h1>Titulo</h1>
-    <p>Esto es la pagina indice</p>
+<a href="{{ url('/cicle') }}"></a>
+@endsection
+@section('contenido')
+<a href="{{ url('/curs') }}"></a>
 @endsection

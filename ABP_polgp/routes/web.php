@@ -28,7 +28,7 @@ Route::get('/cicle', function(){
     $data['arrayCicle']=$cicles;
 
     return view('cicle', $data);
-});
+})->name('cicle');
 
 Route::get('/curs', function(){
     include_once('../app/Clases/Curs.php');
@@ -39,8 +39,8 @@ Route::get('/curs', function(){
         new Curs(2, 'DAW2A', 'Desenvolupament Aplicacions Web de segon matí A', 'DAW'),
         new Curs(3, 'DAW2B', 'Desenvolupament Aplicacions Web de segon matí B', 'DAW')
     );
-    $data['arrayCicle']=$cursos;
+    $data['arrayCurs']=$cursos;
 
-    return view('cicle', $data);
-});
+    return view('curs', $data);
+})->name('curs');
 
