@@ -1,3 +1,8 @@
+<?php
+require_once('../BD/php_librarys/bd.php');
+$paisCantante = selectPaises();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,28 +31,28 @@
         <div class="card">
             <h5 class="card-header">Ficha del cantante</h5>
             <div class="card-body px-5">
-                <form action="../BD/php_controllers/añadirCantController.php" method="POST" enctype="multipart/form-data">
+                <form action="../BD/php_controllers/cantanteController.php" method="POST" enctype="multipart/form-data">
                     <div class="mb-3 row">
                         <label for="nameCancion" class="col-sm-2 col-form-label">Nombre del Cantante: </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="nameCant" name="nameCant" placeholder="Cruz Cafuné" required />
+                            <input type="text" class="form-control" id="nameCantante" name="nameCantante" placeholder="Cruz Cafuné" required />
                         </div>
                     </div>
 
                     <div class=" mb-3 row">
                         <label for="edadCant" class="col-sm-2 col-form-label">Edad del Cantante: </label>
                         <div class="col-sm-10">
-                            <input type="date" class="form-control" id="edadCant" name="edadCant" required />
+                            <input type="date" class="form-control" id="edadCantante" name="edadCantante" required />
                         </div>
                     </div>
 
                     <div class="mb-3 row">
                         <label for="NacionalidadArtista" class="col-sm-2 col-form-label">Nacionalidad: </label>
                         <div class="col-sm-10">
-                            <select name="paisCant" id="paisCant" required>
-                                <?php foreach ($paisCant as $pais) { ?>
-                                    <option value="<?php echo $pais['id_Pais']; ?>">
-                                        <?php echo $pais['nombrePais']; ?>
+                            <select name="paisCantante" id="paisCantante" required>
+                                <?php foreach ($paisCantante as $pais) { ?>
+                                    <option value="<?php echo $pais['idPais']; ?>">
+                                        <?php echo $pais['namePais']; ?>
                                     </option>
                                 <?php } ?>
                             </select>
@@ -56,10 +61,10 @@
 
                     <div class="mb-3 row">
                         <label for="imgCantante" class="col-sm-2 col-form-label">Imagen:</label>
-                        <input type="file" class="form-control" id="imgCant" name="imgCant" required />
+                        <input type="file" class="form-control" id="imgCantante" name="imgCantante" required />
                     </div>
 
-                    <button type="submit" class="btn btn-success" name="insertCant">Success</button>
+                    <button type="submit" class="btn btn-success" name="insertCantante">Success</button>
                     <button type="button" class="btn btn-danger">
                         <a href="../home/index.php">Cancelar</a>
                     </button>

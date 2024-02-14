@@ -1,3 +1,8 @@
+<?php
+require_once('../BD/php_librarys/bd.php');
+$cardCant = selectCantantes();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,6 +71,58 @@
             </div>
         </div>
     </nav>
+
+    <?php foreach ($cardCant as $index => $card) { ?>
+        <?php if ($index % 4 == 0) { ?>
+            <div class="row mb-3">
+            <?php } ?>
+
+            <div class="col-sm-3">
+                <div class="card" style="width: 19rem;  margin: 50px; background-color: #cccccc;">
+                    <img src="<?php echo $card['imgCantante'] ?>" class="card-img-top" alt="..."
+                        style="width: 300px; height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <?php echo $card['nameCantante'] ?>
+                        </h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <?php echo $card['edadCantante'] ?>
+                        </li>
+                        <?php
+                        $paises = jointPais();
+                        foreach ($paises as $pais) {
+                            if ($pais['idCantante'] == $card['idCantante']) {
+                                echo '<li class="list-group-item">' . $pais['nombrePaisCantante'] . '</li>';
+                                break;
+                            }
+                        }
+                        ?>
+                        <!-- <li class="list-group-item  d-flex justify-content-between" style="background-color: #cccccc;">
+                            <form action="./BD/php_controllers/cantanteController.php" method="post">
+                                <input type="hidden" name="id" value="<?php echo $heroe['id']; ?>">
+                                <button type="submit" class="btn btn-light mb-2" id="boton" name="editar" title="Editar Cantante">
+                                <i class="fa-solid fa-pen-to-square" style="color: #1ED760"></i>
+                                </button>
+                            </form>
+
+                            <form action="./BD/php_controllers/cantController.php" method="post">
+                                <input type="hidden" name="id" value="<?php echo $heroe['id']; ?>">
+                                <button type="submit" class="btn btn-light mb-2" id="boton" name="eliminar" title="Eliminar Cantante">
+                                    <i class="fa-solid fa-trash-can" style="color: #ff0000;"></i>
+                                </button>
+                            </form>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+
+            <?php if (($index + 1) % 4 == 0 || ($index + 1) == count($cardCant)) { ?>
+            </div>
+        <?php } ?>
+    <?php } ?>
+    
 </body>
 
 </html>

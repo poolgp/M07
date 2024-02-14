@@ -101,7 +101,6 @@ function jointPais()
 
         return $resultado;
     } catch (\Throwable $th) {
-        // Manejar la excepción según tus necesidades
         return array();
     }
 }
