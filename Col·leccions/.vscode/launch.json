@@ -17,7 +17,7 @@
             "name": "Launch Chrome",
             "request": "launch",
             "type": "chrome",
-            "url": "http://localhost:8080/M07/colecciones2/home/index.php",
+            "url": "http://localhost:8080/M07/Col·leccions/Home/index.php",
             "webRoot": "${workspaceFolder}"
         },
         {

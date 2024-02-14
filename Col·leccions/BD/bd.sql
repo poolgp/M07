@@ -1,0 +1,42 @@
+drop table colleccions.cantantes;
+create table if not exists cantantes(
+	id_Cantante int not null unique auto_increment,
+    nameCant varchar (50) unique,
+    edadCant date not null,
+    paisCant varchar (100),
+    imgCant varchar (200),
+    primary key (id_Cantante)
+);
+
+drop table colleccions.canciones;
+create table if not exists canciones(
+	id_Cancion int not null unique auto_increment,
+    nameCanc varchar (50),
+    albumCanc varchar(50) unique,
+    cantName1 varchar (50),
+    cantName2 varchar (50),
+    anioAlbum int not null,
+    imgCant varchar (200),
+    primary key (id_Cancion)
+);
+
+drop table colleccions.paises;
+create table if not exists paises(
+	id_Pais int not null unique,
+    nombrePais varchar (50) not null unique,
+    primary key (id_Pais)
+);
+
+insert into paises values (1, 'Estados Unidos');
+insert into paises values (2, 'Reino Unido');
+insert into paises values (3, 'Canadá');
+insert into paises values (4, 'Brasil');
+insert into paises values (5, 'España');
+insert into paises values (6, 'Italia');
+insert into paises values (7, 'Francia');
+insert into paises values (8, 'Argentina');
+insert into paises values (9, 'Japón ');
+insert into paises values (10, 'Australia');
+
+-- SELECT * FROM colleccions.paises order by id_Pais;
+select * from colleccions.cantantes;

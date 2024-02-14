@@ -1,0 +1,52 @@
+body {
+    background-color: #191414;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    margin: 20px;
+}
+
+nav {
+    height: 80px;
+    margin: 15px;
+}
+
+.navbar {
+    background-color: #535353;
+}
+
+nav a {
+    text-decoration: none;
+    color: #FFFF;
+    display: flex;
+    align-items: center;
+}
+
+nav i {
+    margin: 15px;
+}
+
+nav a:hover {
+    color: #1ED760;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.dropdown a {
+    color: #FFFF;
+}
+
+.dropdown a:hover {
+    color: #1ED760;
+}
+
+.dropdown-menu {
+    background-color: #1ED760;
+}
