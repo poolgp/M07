@@ -18,7 +18,6 @@ $cardCant = selectCantantes();
     </script>
 
     <link rel="stylesheet" href="lista.css">
-    <script src="index.js"></script>
 </head>
 
 <body>
@@ -79,8 +78,7 @@ $cardCant = selectCantantes();
 
             <div class="col-sm-3">
                 <div class="card" style="width: 19rem;  margin: 50px; background-color: #cccccc;">
-                    <img src="<?php echo $card['imgCantante'] ?>" class="card-img-top" alt="..."
-                        style="width: 300px; height: 200px; object-fit: cover;">
+                    <img src="<?php echo $card['imgCantante'] ?>" class="card-img-top" alt="..." style="width: 300px; height: 200px; object-fit: cover;">
                     <div class="card-body">
                         <h5 class="card-title">
                             <?php echo $card['nameCantante'] ?>
@@ -99,11 +97,24 @@ $cardCant = selectCantantes();
                             }
                         }
                         ?>
+                        <!-- <li class="list-group-item">
+                            <p>
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    Link with href
+                                </a>
+                            </p>
+                            <div class="collapse" id="collapseExample">
+                                <div class="card card-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                                </div>
+                            </div>
+                        </li> -->
+
                         <!-- <li class="list-group-item  d-flex justify-content-between" style="background-color: #cccccc;">
                             <form action="./BD/php_controllers/cantanteController.php" method="post">
                                 <input type="hidden" name="id" value="<?php echo $heroe['id']; ?>">
                                 <button type="submit" class="btn btn-light mb-2" id="boton" name="editar" title="Editar Cantante">
-                                <i class="fa-solid fa-pen-to-square" style="color: #1ED760"></i>
+                                    <i class="fa-solid fa-pen-to-square" style="color: #1ED760"></i>
                                 </button>
                             </form>
 
@@ -122,7 +133,7 @@ $cardCant = selectCantantes();
             </div>
         <?php } ?>
     <?php } ?>
-    
+
 </body>
 
 </html>

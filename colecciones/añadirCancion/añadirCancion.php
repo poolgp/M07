@@ -1,3 +1,8 @@
+<?php
+require_once('../BD/php_librarys/bd.php');
+$nameCantantes = selectCantantes();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,9 +43,9 @@
                         <label for="nameArtista" class="col-sm-2 col-form-label">Nombre del Artista: </label>
                         <div class="col-sm-10">
                             <select name="nameArtista" id="nombreArtista" required>
-                                <?php foreach ($selectCant as $cant) { ?>
+                                <?php foreach ($nameCantantes as $cantante) { ?>
                                     <option value="cantante">
-                                        <?php echo $cant['nameCant']; ?>
+                                        <?php echo $cantante['nameCantante']; ?>
                                     </option>
                                 <?php } ?>
                             </select>
@@ -56,9 +61,9 @@
                         <label for="nameArtista2" class="col-sm-2 col-form-label">Nombre del Artista: </label>
                         <div class="col-sm-10">
                             <select name="nameArtista" id="nombreArtista" required>
-                                <?php foreach ($selectCant as $cant) { ?>
+                            <?php foreach ($nameCantantes as $cantante) { ?>
                                     <option value="cantante">
-                                        <?php echo $cant['nameCant']; ?>
+                                        <?php echo $cantante['nameCantante']; ?>
                                     </option>
                                 <?php } ?>
                             </select>
