@@ -2,9 +2,7 @@
 
 @section('titulo', 'Indice')
 
-@section('contenido')
+{{-- @section('contenido')
 <a href="{{ url('/cicle') }}"></a>
-@endsection
-@section('contenido')
 <a href="{{ url('/curs') }}"></a>
-@endsection
+@endsection --}}
