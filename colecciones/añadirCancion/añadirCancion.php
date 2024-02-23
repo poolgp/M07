@@ -24,7 +24,7 @@ $nameCantantes = selectCantantes();
 <body>
     <header>
         <div class="LogoTitulo">
-            <img class="LogoTituloimg" src="../LogoTitulo.png" />
+            <img class="LogoTituloimg" src="/M07/colecciones/LogoTitulo.png" />
         </div>
     </header>
     <section class="formCancion">
@@ -42,7 +42,7 @@ $nameCantantes = selectCantantes();
                     <div class="mb-3 row">
                         <label for="nameArtista" class="col-sm-2 col-form-label">Nombre del Artista: </label>
                         <div class="col-sm-10">
-                            <select name="nameArtista" id="nombreArtista" required>
+                            <select name="nameArtista1" id="nombreArtista1" required>
                                 <?php foreach ($nameCantantes as $cantante) { ?>
                                     <option value="cantante">
                                         <?php echo $cantante['nameCantante']; ?>
@@ -60,7 +60,7 @@ $nameCantantes = selectCantantes();
                     <div id="artista2Container" class="mb-3 row" style="visibility: hidden">
                         <label for="nameArtista2" class="col-sm-2 col-form-label">Nombre del Artista: </label>
                         <div class="col-sm-10">
-                            <select name="nameArtista" id="nombreArtista" required>
+                            <select name="nameArtista2" id="nombreArtista2" required>
                             <?php foreach ($nameCantantes as $cantante) { ?>
                                     <option value="cantante">
                                         <?php echo $cantante['nameCantante']; ?>
@@ -70,7 +70,7 @@ $nameCantantes = selectCantantes();
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-success" name="insertCanc">Success</button>
+                    <button type="submit" class="btn btn-success" name="insertCancion">Success</button>
                     <button type="button" class="btn btn-danger"><a href="../home/index.php">Cancelar</a></button>
                 </form>
             </div>

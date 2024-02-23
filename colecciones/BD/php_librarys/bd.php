@@ -38,27 +38,28 @@ function selectPaises()
 function insertCantante($idCantante, $nameCantante, $edadCantante, $paisCantante, $imgCantante)
 {
     // try {
-        $conexion = openBD();
+    $conexion = openBD();
 
-        $rutaImg = "/colecciones/img/";
+    $rutaImg = "/M07/colecciones/lista/lista.php";
+    // $rutaImg = "/colecciones/img/";
 
-        $fechaActual = date("Ymd_His");
+    $fechaActual = date("Ymd_His");
 
-        $nombreArchivo = $fechaActual . "-" . $_FILES['imgCantante']['name'];
-        $imgSubida = $rutaImg . $nombreArchivo;
+    $nombreArchivo = $fechaActual . "-" . $_FILES['imgCantante']['name'];
+    $imgSubida = $rutaImg . $nombreArchivo;
 
-        move_uploaded_file($_FILES['imgCantante']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . $imgSubida);
+    move_uploaded_file($_FILES['imgCantante']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . $imgSubida);
 
-        $sentenciaText = "insert into colecciones.cantante (idCantante, nameCantante, edadCantante, paisCantante, imgCantante) values (:idCantante, :nameCantante, :edadCantante, :paisCantante, :imgCantante)";
-        $sentencia = $conexion->prepare($sentenciaText);
-        $sentencia->bindParam(':idCantante', $idCantante);
-        $sentencia->bindParam(':nameCantante', $nameCantante);
-        $sentencia->bindParam(':edadCantante', $edadCantante);
-        $sentencia->bindParam(':paisCantante', $paisCantante);
-        $sentencia->bindParam(':imgCantante', $imgSubida);
-        $sentencia->execute();
+    $sentenciaText = "insert into colecciones.cantante (idCantante, nameCantante, edadCantante, paisCantante, imgCantante) values (:idCantante, :nameCantante, :edadCantante, :paisCantante, :imgCantante)";
+    $sentencia = $conexion->prepare($sentenciaText);
+    $sentencia->bindParam(':idCantante', $idCantante);
+    $sentencia->bindParam(':nameCantante', $nameCantante);
+    $sentencia->bindParam(':edadCantante', $edadCantante);
+    $sentencia->bindParam(':paisCantante', $paisCantante);
+    $sentencia->bindParam(':imgCantante', $imgSubida);
+    $sentencia->execute();
 
-        $conexion = closeBD();
+    $conexion = closeBD();
     // } catch (PDOException $einsertCantante) {
     //     $_SESSION['error'] = $einsertCantante->getCode() . ' - ' . $einsertCantante->getMessage();
     // }
@@ -85,7 +86,10 @@ function jointPais()
     try {
         $conexion = openBD();
 
-        $sentenciaText = "SELECT cantante.idCantante, cantante.nameCantante, cantante.edadCantante, pais.namePais AS nombrePaisCantante, cantante.imgCantante FROM colecciones.cantante INNER JOIN colecciones.pais ON pais.idPais = cantante.paisCantante";
+        $sentenciaText = "SELECT cantante.idCantante, cantante.nameCantante,
+        cantante.edadCantante, pais.namePais AS nombrePaisCantante, 
+        cantante.imgCantante FROM colecciones.cantante INNER JOIN colecciones.pais 
+        ON pais.idPais = cantante.paisCantante";
 
         $sentencia = $conexion->prepare($sentenciaText);
         $sentencia->execute();
@@ -98,4 +102,20 @@ function jointPais()
     } catch (\Throwable $th) {
         return array();
     }
+}
+
+function selectCanciones()
+{
+    $conexion = openBD();
+
+    $sentenciaText = "SELECT * FROM colecciones.cantante;";
+
+    $sentencia = $conexion->prepare("$sentenciaText");
+    $sentencia->execute();
+
+    $resultado = $sentencia->fetchAll();
+
+    $conexion = closeBD();
+
+    return $resultado;
 }

@@ -24,7 +24,7 @@ $paisCantante = selectPaises();
 <body>
     <header>
         <div class="LogoTitulo">
-            <img class="LogoTituloimg" src="../LogoTitulo.png" />
+            <img class="LogoTituloimg" src="/M07/colecciones/LogoTitulo.png" />
         </div>
     </header>
     <section class="formCantante">
