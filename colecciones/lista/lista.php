@@ -1,7 +1,6 @@
 <?php
 require_once('../BD/php_librarys/bd.php');
 $cardCant = selectCantantes();
-$selectCanciones = selectCanciones();
 ?>
 
 <!DOCTYPE html>
@@ -98,7 +97,9 @@ $selectCanciones = selectCanciones();
                             }
                         }
                         ?>
-                        <?php foreach ($selectCanciones as $cancion) { ?>
+                        <?php 
+                        $canciones = selectCAnciones();
+                        foreach ($selectCanciones as $cancion) { ?>
                             <option value="<?php echo $cancion['idCancion']; ?>">
                                 <?php echo $cancion['nameCancion']; ?>
                             </option>
