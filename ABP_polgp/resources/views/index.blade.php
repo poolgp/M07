@@ -1,8 +1,7 @@
 @extends('layouts.principal')
 
-@section('titulo', 'Indice')
+@section('titulo', 'ABP Politécnics')
 
-{{-- @section('contenido')
-<a href="{{ url('/cicle') }}"></a>
-<a href="{{ url('/curs') }}"></a>
-@endsection --}}
+@section('contenido')
+    <img src={{ asset('img/logo.jfif') }} alt="ABP Politécnics" style="height: 100px; width: 200px;"/>
+@endsection

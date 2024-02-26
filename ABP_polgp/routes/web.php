@@ -25,9 +25,9 @@ Route::get('/cicle', function(){
         new Cicle(1, 'DAW', 'Desenvolupament Aplicacions Web'),
         new Cicle(2, 'DAW', 'Desenvolupament Aplicacions Multiplataforma'),
     );
-    $data['arrayCicle']=$cicles;
+    // $data['arrayCicle']=$cicles;
 
-    return view('cicle', $data);
+    return view('cicles.cicle', compact('cicles'));
 })->name('cicle');
 
 Route::get('/curs', function(){
