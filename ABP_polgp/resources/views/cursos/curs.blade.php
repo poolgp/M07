@@ -1,6 +1,6 @@
 @extends('layouts.principal')
 
-@section('titulo', 'Cicles')
+@section('titulo', 'Cursos')
 
 @section('contenido')
 <table class="table">
@@ -9,14 +9,16 @@
         <th scope="col">Id</th>
         <th scope="col">Sigles</th>
         <th scope="col">Nom</th>
+        <th scope="col">Cicle</th>
       </tr>
     </thead>
     <tbody>
-      @foreach ($cicles as $cicle)
+      @foreach ($cursos as $curs)
       <tr>
-        <th scope="row">{{ $cicle->getId() }}</th>
-        <td>{{  $cicle->getSigles() }}</td>
-        <td>{{  $cicle->getNom() }}</td>
+        <th scope="row">{{ $curs->getId() }}</th>
+        <td>{{  $curs->getSigles() }}</td>
+        <td>{{  $curs->getNom() }}</td>
+        <td>{{  $curs->getSiglesCicle() }}</td>
       </tr>
       @endforeach
     </tbody>
