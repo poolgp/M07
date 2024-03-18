@@ -31,38 +31,20 @@ $nameCantantes = selectCantantes();
         <div class="card">
             <h5 class="card-header">Ficha de la canción</h5>
             <div class="card-body px-5">
-                <form action="../BD/php_controllers/añadirCantController.php" method="POST">
+                <form action="../BD/php_controllers/cancionController.php" method="POST">
                     <div class="mb-3 row">
                         <label for="nameCancion" class="col-sm-2 col-form-label">Nombre de la Canción: </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputnameCancion" placeholder="Sangre y Fe" />
+                            <input type="text" class="form-control" id="inputnameCancion" placeholder="Sangre y Fe" name="nameCancion"/>
                         </div>
                     </div>
 
                     <div class="mb-3 row">
                         <label for="nameArtista" class="col-sm-2 col-form-label">Nombre del Artista: </label>
                         <div class="col-sm-10">
-                            <select name="nameArtista1" id="nombreArtista1" required>
+                            <select name="cantName" id="nombreArtista1" required>
                                 <?php foreach ($nameCantantes as $cantante) { ?>
-                                    <option value="cantante">
-                                        <?php echo $cantante['nameCantante']; ?>
-                                    </option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Colaboración</label>
-                    </div>
-
-                    <div id="artista2Container" class="mb-3 row" style="visibility: hidden">
-                        <label for="nameArtista2" class="col-sm-2 col-form-label">Nombre del Artista: </label>
-                        <div class="col-sm-10">
-                            <select name="nameArtista2" id="nombreArtista2" required>
-                            <?php foreach ($nameCantantes as $cantante) { ?>
-                                    <option value="cantante">
+                                    <option value="<?php echo $cantante['nameCantante']; ?>">
                                         <?php echo $cantante['nameCantante']; ?>
                                     </option>
                                 <?php } ?>

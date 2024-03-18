@@ -97,9 +97,20 @@ $cardCant = selectCantantes();
                             }
                         }
                         ?>
-                        <?php 
-                        $canciones = selectCAnciones();
-                        foreach ($selectCanciones as $cancion) { ?>
+
+                        <?php
+                        $canciones = selectCanciones();
+                        ?>
+
+                        <select name="canciones" id="canciones">
+                            <?php foreach ($canciones as $cancion) : ?>
+                                <option value="<?php echo $cancion['id']; ?>"><?php echo $cancion['nameCancion']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+
+                        <?php
+                        $canciones = selectCanciones();
+                        foreach ($canciones as $cancion) { ?>
                             <option value="<?php echo $cancion['idCancion']; ?>">
                                 <?php echo $cancion['nameCancion']; ?>
                             </option>

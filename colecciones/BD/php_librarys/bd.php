@@ -40,10 +40,12 @@ function insertCantante($idCantante, $nameCantante, $edadCantante, $paisCantante
     // try {
     $conexion = openBD();
 
-    $rutaImg = "/M07/colecciones/lista/lista.php";
+    $rutaImg = "/M07/colecciones/img/";
     // $rutaImg = "/colecciones/img/";
 
     $fechaActual = date("Ymd_His");
+
+    // $carpetaDestino=$_SERVER["DOCUMENT_ROOT"]."/oscarArriaza/media/imagenes/";
 
     $nombreArchivo = $fechaActual . "-" . $_FILES['imgCantante']['name'];
     $imgSubida = $rutaImg . $nombreArchivo;
@@ -63,6 +65,22 @@ function insertCantante($idCantante, $nameCantante, $edadCantante, $paisCantante
     // } catch (PDOException $einsertCantante) {
     //     $_SESSION['error'] = $einsertCantante->getCode() . ' - ' . $einsertCantante->getMessage();
     // }
+}
+
+
+
+function insertCancion($idCancion, $nameCancion, $cantName)
+{
+    $conexion = openBD();
+
+    $sentenciaText =  "insert into colecciones.cancion (idCancion, nameCancion, cantName) values (:idCancion, :nameCancion, :cantName)";
+    $sentencia = $conexion->prepare($sentenciaText);
+    $sentencia->bindParam(':idCancion', $idCancion);
+    $sentencia->bindParam(':nameCancion', $nameCancion);
+    $sentencia->bindParam(':cantName', $cantName);
+    $sentencia->execute();
+
+    $conexion = closeBD();
 }
 
 function selectCantantes()
@@ -104,11 +122,19 @@ function jointPais()
     }
 }
 
+// function jointCancion() {
+//     $conexion = openBD();
+
+//     $sentenciaText
+
+//     $conexion = closeBD();
+// }
+
 function selectCanciones()
 {
     $conexion = openBD();
 
-    $sentenciaText = "SELECT * FROM colecciones.cantante;";
+    $sentenciaText = "SELECT * FROM colecciones.cancion;";
 
     $sentencia = $conexion->prepare("$sentenciaText");
     $sentencia->execute();
