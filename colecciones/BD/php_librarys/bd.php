@@ -122,13 +122,27 @@ function jointPais()
     }
 }
 
-// function jointCancion() {
-//     $conexion = openBD();
+function jointCancion()
+{
+    try {
+        $conexion = openBD();
 
-//     $sentenciaText
+        $sentenciaText = "SELECT cantante.idCantante, cantante.nameCantante, cancion.nameCancion
+        FROM colecciones.cantante
+        LEFT JOIN colecciones.cancion ON cantante.nameCantante = cancion.cantName";
 
-//     $conexion = closeBD();
-// }
+        $sentencia = $conexion->prepare($sentenciaText);
+        $sentencia->execute();
+
+        $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+        $conexion = closeBD();
+
+        return $resultado;
+    } catch (\Throwable $th) {
+        return array();
+    }
+}
 
 function selectCanciones()
 {
@@ -144,4 +158,23 @@ function selectCanciones()
     $conexion = closeBD();
 
     return $resultado;
+}
+
+function eliminarCantante($idCantante)
+{
+    try {
+        $conexion = openBD();
+
+        $sentenciaText = "DELETE FROM colecciones.cantante WHERE idCantante = :idCantante";
+
+        $sentencia = $conexion->prepare($sentenciaText);
+
+        $sentencia->bindParam(':idCantante', $idCantante);
+
+        $sentencia->execute();
+
+        return true;
+    } catch (PDOException $e) {
+        return false;
+    }
 }
