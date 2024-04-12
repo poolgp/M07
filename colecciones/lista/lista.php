@@ -1,6 +1,8 @@
 <?php
 require_once('../BD/php_librarys/bd.php');
 $cardCant = selectCantantes();
+$cardCant = jointPais();
+$canciones = jointCancion();
 ?>
 
 <!DOCTYPE html>
@@ -10,6 +12,8 @@ $cardCant = selectCantantes();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de canciones</title>
+
+    <link rel="icon" type="image/png" href="../c.png">
 
     <script src="https://kit.fontawesome.com/c7334dda94.js" crossorigin="anonymous"></script>
 
@@ -97,41 +101,28 @@ $cardCant = selectCantantes();
                             }
                         }
                         ?>
-                        <?php 
-                        $canciones = selectCAnciones();
-                        foreach ($selectCanciones as $cancion) { ?>
-                            <option value="<?php echo $cancion['idCancion']; ?>">
-                                <?php echo $cancion['nameCancion']; ?>
-                            </option>
-                        <?php } ?>
-                        <!-- <li class="list-group-item">
-                            <p>
-                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                    Link with href
-                                </a>
-                            </p>
-                            <div class="collapse" id="collapseExample">
-                                <div class="card card-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                                </div>
-                            </div>
-                        </li> -->
 
-                        <!-- <li class="list-group-item  d-flex justify-content-between" style="background-color: #cccccc;">
-                            <form action="./BD/php_controllers/cantanteController.php" method="post">
-                                <input type="hidden" name="id" value="<?php echo $heroe['id']; ?>">
+                        <?php foreach ($canciones as $cancion) {
+                            if ($cancion['idCantante'] == $card['idCantante']) {
+                                echo "<li>" . $cancion['nameCancion'] . "</li>";
+                            }
+                        } ?>
+
+                        <li class="list-group-item  d-flex justify-content-between" style="background-color: #cccccc;">
+                            <form action="../BD/php_controllers/cantanteController.php" method="post">
+                                <input type="hidden" name="id" value="<?php echo $card['idCantante']; ?>">
                                 <button type="submit" class="btn btn-light mb-2" id="boton" name="editar" title="Editar Cantante">
                                     <i class="fa-solid fa-pen-to-square" style="color: #1ED760"></i>
                                 </button>
                             </form>
 
-                            <form action="./BD/php_controllers/cantController.php" method="post">
-                                <input type="hidden" name="id" value="<?php echo $heroe['id']; ?>">
+                            <form action="../BD/php_controllers/cantanteController.php" method="post">
+                                <input type="hidden" name="id" value="<?php echo $card['idCantante']; ?>">
                                 <button type="submit" class="btn btn-light mb-2" id="boton" name="eliminar" title="Eliminar Cantante">
                                     <i class="fa-solid fa-trash-can" style="color: #ff0000;"></i>
                                 </button>
                             </form>
-                        </li> -->
+                        </li>
                     </ul>
                 </div>
             </div>
