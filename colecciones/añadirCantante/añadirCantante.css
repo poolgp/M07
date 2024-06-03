@@ -1,0 +1,65 @@
+body {
+  background-color: #191414;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  margin: 40px;
+}
+
+.containerCartas {
+  border: solid 2px black;
+  height: auto;
+  margin: 15px;
+}
+
+.card {
+  margin: 50px 150px 50px 150px;
+  border-color: black;
+}
+
+.card-header {
+  background-color: #1db954;
+  color: #ffff;
+}
+
+.card-body {
+  background-color: #535353;
+  color: #ffff;
+}
+
+.form-check-input:disabled {
+  background-color: #fff;
+}
+
+.form-check-input:checked {
+  background-color: #4caf50;
+}
+
+.btn-success {
+  background-color: #1db954;
+  border-color: #1db954;
+}
+
+.btn-success:hover {
+  background-color: #168a41;
+  border-color: #168a41;
+}
+
+.btn-danger {
+  background-color: #ff3b30;
+  border-color: #ff3b30;
+}
+
+.btn-danger:hover {
+  background-color: #8b1a1a;
+  border-color: #8b1a1a;
+}
+
+.btn-danger a {
+  text-decoration: none;
+  color: #ffffff;
+}
